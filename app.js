@@ -3,14 +3,11 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var path = require('path')
 // 路由加载
-const compression = require('compression')
 
 var mount = require('mount-routes')
 
 var app = express()
 
-app.use(compression()) //gzip压缩
-app.use(express.static('./dist'))
 /**
  *
  * 公共系统初始化
@@ -127,8 +124,8 @@ app.use(function(req, res, next) {
 
 
 
-app.listen(8888)
-app.listen(80,()=>{
-    console.log('server running at http://127.0.0.1');
+app.listen(8888,()=>{
+  console.log('服务端启动在http://127.0.0.1:8888');
 })
+
 module.exports = app
